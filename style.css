@@ -1,0 +1,128 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Barra de navegacipn */
+nav {
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 7%;
+    position: relative; 
+}
+
+.logo-Mundial {
+    width: 70px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    flex: 1;
+    justify-content: flex-end; /* Alinea los enlaces al lado derecho */
+}
+
+.user-icon {
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* menu desplegable */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.dropdown-wrapper {
+    padding: 20px;
+}
+
+/* info del usuario dentro del menu*/
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.user-info h2 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* esto para la linea que divide */
+.side-menu hr {
+    border: 0;
+    height: 1px;
+    background-color: #851717;
+    margin: 15px 0;
+}
+
+/* Opciones del menu */
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.menu-options div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu-options img {
+    width: 45px;
+    height: 45px;
+}
+
+.menu-options p {
+    flex: 1;
+    margin-left: 15px;
+    font-size: 15px;
+    color: #555;
+}
+
+.menu-options span {
+    font-size: 20px;
+    color: #999;
+}
+
+.open-menu {
+    transform: translateX(0);
+}
