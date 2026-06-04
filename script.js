@@ -3,18 +3,18 @@ class Panel extends HTMLElement {
     constructor() {
         super();
 
-        // Crea el Shadow DOM
+        // crear el shadow dom
         this.attachShadow({ mode: "open" });
     }
 
-    // Agrega una opción al menú
+    // opcion del menu
     addRow(icono, texto) {
 
         const contenedor =
             this.shadowRoot.querySelector(".menu-options");
 
         contenedor.innerHTML += `
-            <div>
+            <div class="menu-item" data-title="${texto}">
                 <img src="${icono}" alt="${texto}">
                 <p>${texto}</p>
                 <span>&gt;</span>
@@ -22,21 +22,21 @@ class Panel extends HTMLElement {
         `;
     }
 
-    // Muestra el menú
+    // show menu
     show() {
         this.shadowRoot
             .querySelector(".side-menu")
             .classList.add("open-menu");
     }
 
-    // Oculta el menú
+    // Oculta el menu
     hide() {
         this.shadowRoot
             .querySelector(".side-menu")
             .classList.remove("open-menu");
     }
 
-    // HTML del componente
+    // html del componente
     getTemplate() {
 
         return `
@@ -58,7 +58,7 @@ class Panel extends HTMLElement {
         `;
     }
 
-    // CSS del componente
+    // css del componente
     getCss() {
 
         return `
@@ -146,10 +146,19 @@ class Panel extends HTMLElement {
         this.render();
 
         this.addRow("images/feedback.png", "Enviar comentarios");
-        this.addRow("images/setting.png", "Configuración");
+        this.addRow("images/setting.png", "Configuracion");
         this.addRow("images/help.png", "Ayuda y soporte");
         this.addRow("images/display.png", "Pantalla y accesibilidad");
-        this.addRow("images/logout.png", "Cerrar sesión");
+        this.addRow("images/logout.png", "Cerrar sesion");
+
+        this.shadowRoot.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', () => {
+                window.dispatchEvent(new CustomEvent('menu-select', {
+                    detail: item.dataset.title
+                }));
+                this.hide();
+            });
+        });
     }
 }
 
@@ -159,18 +168,22 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const userIcon = document.querySelector(".user-icon");
     const panel = document.querySelector("x-panel");
+    const contenido = document.getElementById('contenido');
 
     let abierto = false;
 
     userIcon.addEventListener("click", () => {
-
         if (abierto) {
             panel.hide();
         } else {
             panel.show();
         }
-
         abierto = !abierto;
+    });
+
+    window.addEventListener('menu-select', event => {
+        contenido.textContent = event.detail;
+        abierto = false;
     });
 
 });
