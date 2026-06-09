@@ -2,7 +2,6 @@ class Panel extends HTMLElement {
 
     constructor() {
         super();
-<<<<<<< HEAD
         // Crear el shadow dom
         this.attachShadow({ mode: "open" });
     }
@@ -82,47 +81,19 @@ class Panel extends HTMLElement {
     }
 
     // Muestra el menú
-=======
-
-        // crear el shadow dom
-        this.attachShadow({ mode: "open" });
-    }
-
-    // opcion del menu
-    addRow(icono, texto) {
-
-        const contenedor =
-            this.shadowRoot.querySelector(".menu-options");
-
-        contenedor.innerHTML += `
-            <div class="menu-item" data-title="${texto}">
-                <img src="${icono}" alt="${texto}">
-                <p>${texto}</p>
-                <span>&gt;</span>
-            </div>
-        `;
-    }
-
-    // show menu
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
     show() {
         this.shadowRoot
             .querySelector(".side-menu")
             .classList.add("open-menu");
     }
 
-<<<<<<< HEAD
     // Oculta el menú
-=======
-    // Oculta el menu
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
     hide() {
         this.shadowRoot
             .querySelector(".side-menu")
             .classList.remove("open-menu");
     }
 
-<<<<<<< HEAD
     // Estructura HTML interna del componente
     getTemplate() {
         return `
@@ -134,38 +105,12 @@ class Panel extends HTMLElement {
                     <hr>
                     <div class="menu-options"></div>
                 </div>
-=======
-    // html del componente
-    getTemplate() {
-
-        return `
-            <div class="side-menu">
-
-                <div class="dropdown-wrapper">
-
-                    <div class="user-info">
-                        <h2>Menú</h2>
-                    </div>
-
-                    <hr>
-
-                    <div class="menu-options"></div>
-
-                </div>
-
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
             </div>
         `;
     }
 
-<<<<<<< HEAD
     // Estilos del Shadow DOM
     getCss() {
-=======
-    // css del componente
-    getCss() {
-
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
         return `
             .side-menu{
                 position:fixed;
@@ -208,45 +153,30 @@ class Panel extends HTMLElement {
                 gap:13px;
             }
 
-<<<<<<< HEAD
             .menu-item {
                 display: flex;
                 flex-direction: column;
             }
 
             .menu-header {
-=======
-            .menu-options div{
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
                 display:flex;
                 align-items:center;
                 justify-content:space-between;
                 cursor:pointer;
-<<<<<<< HEAD
                 width: 100%;
             }
 
             .menu-header img{
-=======
-            }
-
-            .menu-options img{
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
                 width:45px;
                 height:45px;
             }
 
-<<<<<<< HEAD
             .menu-header p{
-=======
-            .menu-options p{
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
                 flex:1;
                 margin-left:15px;
                 color:#555;
             }
 
-<<<<<<< HEAD
             .menu-header .arrow{
                 font-size:14px;
                 color:#999;
@@ -279,63 +209,21 @@ class Panel extends HTMLElement {
     }
 
     render() {
-=======
-            .menu-options span{
-                font-size:20px;
-                color:#999;
-            }
-        `;
-    }
-
-    // Renderiza el componente
-    render() {
-
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
         this.shadowRoot.innerHTML = `
             <style>
                 ${this.getCss()}
             </style>
-<<<<<<< HEAD
-=======
-
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
             ${this.getTemplate()}
         `;
     }
 
-<<<<<<< HEAD
     connectedCallback() {
         this.render();
-=======
-    // Se ejecuta al cargar el componente
-    connectedCallback() {
-
-        this.render();
-
-        this.addRow("images/feedback.png", "Enviar comentarios");
-        this.addRow("images/setting.png", "Configuracion");
-        this.addRow("images/help.png", "Ayuda y soporte");
-        this.addRow("images/display.png", "Pantalla y accesibilidad");
-        this.addRow("images/logout.png", "Cerrar sesion");
-
-        this.shadowRoot.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', () => {
-                window.dispatchEvent(new CustomEvent('menu-select', {
-                    detail: item.dataset.title
-                }));
-                this.hide();
-            });
-        });
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
     }
 }
 
 customElements.define("x-panel", Panel);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
 window.addEventListener("DOMContentLoaded", () => {
 
     const userIcon = document.querySelector(".user-icon");
@@ -344,7 +232,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     let abierto = false;
 
-<<<<<<< HEAD
     
     const menuConfig = [
         { icon: "images/feedback.png", text: "Enviar comentarios" },
@@ -361,8 +248,6 @@ window.addEventListener("DOMContentLoaded", () => {
     panel.setMenuData(menuConfig);
 
     // Control de apertura y cierre general del Sidebar
-=======
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
     userIcon.addEventListener("click", () => {
         if (abierto) {
             panel.hide();
@@ -372,7 +257,6 @@ window.addEventListener("DOMContentLoaded", () => {
         abierto = !abierto;
     });
 
-<<<<<<< HEAD
     
     window.addEventListener('menu-select', event => {
         contenido.textContent = event.detail;
@@ -383,11 +267,6 @@ window.addEventListener("DOMContentLoaded", () => {
             abierto = false;
             panel.hide();
         }
-=======
-    window.addEventListener('menu-select', event => {
-        contenido.textContent = event.detail;
-        abierto = false;
->>>>>>> 64c61e8283e9411c5fe9c83b25a730eeb6e6ab86
     });
 
 });
