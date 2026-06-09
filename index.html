@@ -3,62 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>Menu Mundial</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
         <img src="images/logo-Mundial.png" class="logo-Mundial" alt="Logo">
-        
+
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Jugadores</a></li>
             <li><a href="#">Plantillas</a></li>
         </ul>
 
-        <img src="images/image.png" class="user-icon" alt="Icono Usuario">
-
-        <div class="side-menu" id="dropdownMenu">
-            <div class="dropdown-wrapper">
-                
-                <div class="user-info">
-                    <h2>Menu</h2>
-                </div>
-
-                <hr>
-
-                <div class="menu-options">
-                    <div>
-                        <img src="images/feedback.png" alt="Feedback">
-                        <p>Enviar comentarios</p>
-                        <span>&gt;</span>
-                    </div>
-                    <div>
-                        <img src="images/setting.png" alt="Settings">
-                        <p>Configuracion</p>
-                        <span>&gt;</span>
-                    </div>
-                    <div>
-                        <img src="images/help.png" alt="Help">
-                        <p>Ayuda y soporte</p>
-                        <span>&gt;</span>
-                    </div>
-                    <div>
-                        <img src="images/display.png" alt="Display">
-                        <p>Pantalla y accesibilidad</p>
-                        <span>&gt;</span>
-                    </div>
-                    <div>
-                        <img src="images/logout.png" alt="Logout">
-                        <p>Cerrar sesion</p>
-                        <span>&gt;</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        <img src="images/image.png" class="user-icon" alt="Usuario">
     </nav>
+
+    <x-panel></x-panel>
+
+    <main class="contenido" id="contenido"></main>
+
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
