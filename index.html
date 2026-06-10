@@ -9,21 +9,32 @@
 <body>
 
     <nav>
-
         <img src="images/logo-Mundial.png" class="logo-Mundial" alt="Logo">
-
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Jugadores</a></li>
             <li><a href="#">Plantillas</a></li>
         </ul>
-
         <img src="images/image.png" class="user-icon" alt="Usuario">
     </nav>
 
     <x-panel></x-panel>
 
     <main class="contenido" id="contenido"></main>
+
+    <template id="panel-template">
+        <link rel="stylesheet" href="style.css">
+        
+        <div class="side-menu">
+            <div class="dropdown-wrapper">
+                <div class="user-info">
+                    <h2>Menú</h2>
+                </div>
+                <hr>
+                <div class="menu-options"></div>
+            </div>
+        </div>
+    </template>
 
     <script src="script.js"></script>
 </body>
